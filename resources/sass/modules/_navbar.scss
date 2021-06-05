@@ -1,0 +1,62 @@
+@import "../util/variables";
+@import "../util/fonts";
+@import "../components/buttons";
+
+nav {
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-color;
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        padding: 1.4em;
+
+        &__logo {
+            height: 20px;
+            object-fit: cover;
+        }
+
+        &__menu {
+            margin-left: 3em;
+
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    margin: 1em;
+
+                    a {
+                        text-decoration: none;
+                        @include menu-font;
+
+                        &:hover {
+                            transition: .5s;
+                        }
+                    }
+
+                    .current {
+                        @include menu-font-current;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-user {
+        &__login {
+            @include menu-font;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        &__register-btn {
+            margin: 2em;
+            @include accent-outline-btn;
+        }
+    }
+}

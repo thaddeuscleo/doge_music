@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+//Utils
+@import "util/body";
+@import "util/reset";
+@import "util/variables";
+
+//Modules
+@import "modules/navbar";
+@import "modules/footer";
+@import "modules/user_profile_card";
+@import "modules/past_transaction_card";
+@import "modules/search";
+
+//Pages
+@import "pages/register_page";
+@import "pages/login_page";
+@import "pages/user_dashboard";
+@import "pages/home_page";
+@import "pages/products_page";
+@import "pages/product_page";
+@import "pages/admin_page";
+@import "pages/add_music_page";
+

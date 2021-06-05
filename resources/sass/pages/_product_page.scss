@@ -1,0 +1,61 @@
+@import "../util/fonts";
+@import "../components/buttons";
+
+.product-page {
+    max-width: 100vw;
+    min-height: 100vh;
+
+    .album-head {
+        width: 80%;
+        margin: 5em auto;
+        display: flex;
+
+        &__art {
+            img {
+                width: 30rem;
+                height: 30rem;
+                object-fit: cover;
+            }
+        }
+
+        &__desc {
+            @include green-button;
+            width: 100%;
+            margin-left: 5em;
+
+            h2 {
+                padding-top: 2em;
+                @include large-heading-font(4rem);
+            }
+
+            p {
+                @include paragraph-font;
+            }
+        }
+    }
+
+    .sub-head {
+        width: 80%;
+        margin: 1em auto;
+        h2{
+            @include title-font;
+            font-size: 2.5rem;
+        }
+    }
+
+    .album-songs {
+        width: 80%;
+        margin: 0 auto 5em;
+
+        .song-item {
+            @include paragraph-font;
+            padding: 1em;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .song-item:nth-child(odd){
+            background-color: $gray;
+        }
+    }
+}

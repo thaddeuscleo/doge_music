@@ -1,0 +1,35 @@
+@import "../util/variables";
+@import "../util/fonts";
+@import "../components/inputs";
+
+@mixin accent-outline-btn() {
+    padding: 1em;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1.5px solid $accent-color;
+    border-radius: 5%;
+    cursor: pointer;
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+        @include button-link;
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.23);
+    }
+}
+
+@mixin green-button {
+    @include white-button;
+    button {
+        background-color: #15b115;
+        color: white;
+
+        &:hover {
+            background-color: $white;
+            opacity: .5;
+        }
+    }
+}

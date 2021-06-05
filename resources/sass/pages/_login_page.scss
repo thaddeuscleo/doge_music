@@ -1,0 +1,30 @@
+@import "../util/variables";
+@import "../util/fonts";
+@import "../components/inputs";
+
+.login-page {
+    background:
+    linear-gradient(to bottom, rgba(19, 6, 6, 0.95), rgb(3, 0, 0)), url('https://login.tidal.com/_nuxt/img/album-backgrounds.39c62cf.jpg');
+    min-height: 100vh;
+    max-width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form {
+        width: 100vw;
+        @include form-style;
+
+        &__header {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            h3 {
+                @include large-heading-font(1.5rem);
+                margin: 2em;
+            }
+        }
+    }
+}

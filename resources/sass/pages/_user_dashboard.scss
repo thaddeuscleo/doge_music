@@ -1,0 +1,27 @@
+@import "../modules/user_profile_card";
+@import "../modules/past_transaction_card";
+
+.user-page {
+    display: flex;
+    max-width: 100vw;
+    min-height: 100vh;
+
+    .profile-card {
+        @include user-profile;
+    }
+
+    .past-transaction-container {
+        width: 100%;
+
+        h2 {
+            @include title-font;
+            margin-left: 2em;
+            margin-top: 1em;
+        }
+
+        .past-transaction {
+            @include past-transaction-card;
+        }
+    }
+
+}

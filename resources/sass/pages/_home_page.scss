@@ -1,0 +1,240 @@
+@import "../util/variables";
+@import "../util/fonts";
+@import "../components/inputs";
+
+.home-page {
+
+    .hero-banner {
+        min-height: 100vh;
+        max-width: 100vw;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(15, 5, 134, 1) 52%, rgba(255, 0, 0, 1) 100%);
+        position: relative;
+
+        &__overlay {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 0) 100%);
+        }
+
+        &__section {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__text {
+                width: 60vw;
+
+                h1 {
+                    @include large-heading-font(8rem);
+                }
+
+                @include white-button;
+
+                button {
+                    width: 25%;
+                }
+            }
+        }
+    }
+
+    .presentation-banner {
+        max-width: 100vw;
+        height: fit-content;
+        background-color: black;
+
+        .banner-content {
+            width: 55%;
+            margin: 0 auto;
+            padding: 2em;
+            height: fit-content;
+
+            &__head {
+                display: flex;
+                align-items: center;
+
+                h1 {
+                    color: white;
+                    margin: .3em;
+                    @include large-heading-font(3rem);
+                }
+
+                i {
+                    margin-right: 1em;
+                    width: 3rem;
+                    height: 3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $dark-gray;
+                    color: white;
+                    border-radius: 50%;
+                }
+            }
+
+            p {
+                width: 95%;
+                @include paragraph-font;
+                font-size: 1.5rem;
+                font-weight: bold;
+                opacity: .7;
+            }
+
+            &:last-child {
+                padding-bottom: 10em;
+            }
+        }
+    }
+
+    .audio-banner {
+        width: 100%;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 0) 100%);
+
+        .content {
+            width: 65%;
+            margin: 0 auto;
+            display: flex;
+            padding: 5em;
+        }
+
+        &__img {
+            margin: 1em;
+
+            img {
+                width: 30vw;
+            }
+
+            h2 {
+                @include large-heading-font(2rem)
+            }
+
+            &__desc {
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin: .3em;
+                }
+
+                p:first-child {
+                    margin-left: 0;
+                    @include menu-font;
+                    font-weight: bold;
+                    color: #ffbe7d;
+                    background-color: #332619;
+                    padding: .25rem;
+                    border-radius: 6px;
+
+                    &:hover {
+                        color: #ffbe7d;
+                    }
+                }
+
+                p:nth-child(2) {
+                    @include paragraph-font;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+
+                p:last-child {
+                    @include paragraph-font;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    opacity: .4;
+                }
+            }
+        }
+
+        &__desc {
+            margin: 1em 3em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+                @include large-heading-font(3.5rem);
+                margin-bottom: 1em;
+            }
+
+            p {
+                @include paragraph-font;
+            }
+        }
+    }
+
+    .testimony-banner {
+        max-width: 100vw;
+        padding: 7em;
+
+        &__text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 20vh;
+            margin: 0 auto;
+
+            h1 {
+                text-align: center;
+                @include menu-font-current;
+                font-weight: bolder;
+                font-size: 1.8rem;
+                color: white;
+                transition: .8s;
+            }
+        }
+
+        &__comp {
+            width: 80%;
+            margin: 3em auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                margin: 0 2em;
+                color: white;
+                opacity: .3;
+                cursor: pointer;
+
+                &:hover {
+                    transition: .5s;
+                    opacity: .7;
+                }
+            }
+
+            .selected {
+                transition: .8s;
+                opacity: 1;
+            }
+
+            img:first-child {
+                width: 20rem;
+            }
+
+            img:nth-child(2) {
+                width: 15rem;
+            }
+
+            img:nth-child(3) {
+                width: 6rem;
+            }
+
+            img:nth-child(4) {
+                width: 18rem;
+            }
+
+            img:last-child {
+                width: 18rem;
+            }
+        }
+    }
+
+
+}

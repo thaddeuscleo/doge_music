@@ -1,0 +1,103 @@
+@import "../util/variables";
+@import "../util/fonts";
+
+$radius: 10px;
+@mixin form-style() {
+
+    .form-control {
+        $control-width: 25%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            display: none;
+        }
+
+        input {
+            margin: .8em;
+            font-family: $menu-font;
+            font-weight: 600;
+            color: white;
+            background: none;
+            padding: 1em;
+            width: $control-width;
+            border-radius: $radius;
+            border: 2px solid $accent-color;
+        }
+
+        input::placeholder {
+            font-family: $menu-font;
+            font-weight: 600;
+            opacity: .5;
+            color: $accent-color;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        @include white-button;
+
+        a {
+            color: white;
+            font-size: .8rem;
+            @include paragraph-font;
+        }
+    }
+}
+
+@mixin danger-btn() {
+    button {
+        width: 100%;
+        background-color: indianred;
+        color: white;
+        padding: 1em 5em;
+        border-radius: $radius;
+        border: none;
+        cursor: pointer;
+        font-family: $menu-font;
+        font-weight: 600;
+        transition: 0.3s;
+        margin-top: 1em;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button:hover {
+        color: black;
+        background-color: white;
+        opacity: .8;
+    }
+}
+
+@mixin white-button(){
+    $control-width: 25%;
+
+    button {
+        width: $control-width + 1.5%;
+        background-color: white;
+        color: black;
+        padding: 1em 5em;
+        border-radius: $radius;
+        border: none;
+        cursor: pointer;
+        font-family: $menu-font;
+        font-weight: 600;
+        transition: 0.3s;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button:hover {
+        background-color: white;
+        opacity: .8;
+    }
+}
