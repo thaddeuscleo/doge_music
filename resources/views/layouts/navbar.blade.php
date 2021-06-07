@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-container">
-        <img class="nav-container__logo" src="{{ url('images/tidal.png') }}" alt="logo">
+        <img class="nav-container__logo" src="{{ asset('storage/images/tidal.png') }}" alt="logo">
         <div class="nav-container__menu">
             <ul>
                 <li><a class="current" href="{{ route('home') }}">Home</a></li>
