@@ -14,6 +14,3 @@ RUN chmod 777 -R /var/www/storage/ && \
     echo "Listen 8080" >> /etc/apache2/ports.conf && \
     chown -R www-data:www-data /var/www/ && \
     a2enmod rewrite
-
-COPY ./run.sh /tmp
-ENTRYPOINT ["/tmp/run.sh"]
