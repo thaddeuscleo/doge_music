@@ -1975,7 +1975,7 @@ try {
           }
 
           data.forEach(function (data) {
-            container.innerHTML += "\n                                <input\n                                    type=\"text\"\n                                    class=\"song\"\n                                    name=\"song_name[]\"\n                                    placeholder=\"Song Name\"\n                                    value=\"".concat(data.title, "\">\n                            ");
+            container.innerHTML += "\n                                <input\n                                    type=\"text\"\n                                    class=\"song\"\n                                    name=\"song[]\"\n                                    placeholder=\"Song Name\"\n                                    value=\"".concat(data.title, "\">\n                            ");
           });
         });
       });
@@ -2034,7 +2034,7 @@ addSongButton.addEventListener('click', function () {
   var songElement = document.getElementsByClassName('song');
 
   if (songElement.length < 4) {
-    container.innerHTML += "\n                <input\n                    type=\"text\"\n                    class=\"song\"\n                    name=\"song_name\"\n                    placeholder=\"Song Name\">\n            ";
+    container.innerHTML += "\n                <input\n                    type=\"text\"\n                    class=\"song\"\n                    name=\"song[]\"\n                    placeholder=\"Song Name\">\n            ";
   }
 });
 /*
@@ -2204,7 +2204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "environment": () => (/* binding */ environment)
 /* harmony export */ });
 var environment = {
-  host: "http://localhost:8000/"
+  host: "http://127.0.0.1:8000/"
 };
 
 /***/ }),

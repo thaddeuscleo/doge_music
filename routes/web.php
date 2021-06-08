@@ -44,6 +44,10 @@ Route::post('/product/store', [ProductController::class, 'store'])
     ->name('store-product')
     ->middleware('auth');
 
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])
+    ->name('delete-product')
+    ->middleware('auth');
+
 Route::get('/product/{id}', [ProductController::class, 'show'])
     ->name('product');
 
@@ -51,6 +55,6 @@ Route::put('/product/{id}', [ProductController::class, 'update'])
     ->name('product')
     ->middleware('auth');
 
-Route::get('/purchase-confirmation/{id}', [PurchaseConfirmationController::class, 'show'])
+Route::post('/purchase-confirmation/{id}', [PurchaseConfirmationController::class, 'store'])
     ->name('purchase-confirmation')
     ->middleware('auth');

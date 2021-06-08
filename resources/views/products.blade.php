@@ -13,7 +13,7 @@
                 @foreach($albums as $album)
                     <a href="{{route('product', $album->id)}}">
                         <div class="album-item">
-                            <img src="{{ asset('storage/images/album_art.jpg') }}" alt="">
+                            <img src="{{ asset($album->album_art) }}" alt="">
                             <p>
                                 {{$album->name}}
                             </p>

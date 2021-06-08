@@ -8,10 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @method static where(string $string, int $id)
  * @method static findOrFail($id)
+ * @property mixed title
+ * @property mixed album_id
  */
 class Song extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title'
+    ];
 
     public function album()
     {

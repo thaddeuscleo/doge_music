@@ -18,20 +18,21 @@
         <div class="past-transaction-container">
             <h2>Past Transaction</h2>
             <div class="past-transaction">
-                @for ($i = 0; $i < 20; $i++)
-                    <div class="item">
-                        <h3>Album Name</h3>
-                        <div class="detail">
-                            <p>Date</p>
-                            <p>10.000,00</p>
+                @foreach($histories as $history)
+                    @foreach($history as $date => $album)
+                        <div class="item">
+                            <h3>{{ $album->name }}</h3>
+                            <div class="detail">
+                                <p>{{ $date }}</p>
+                                <p>{{ $album->price }}</p>
+                            </div>
                         </div>
-                    </div>
-                @endfor
+                    @endforeach
+                @endforeach
             </div>
         </div>
 
 
     </section>
-
 @endsection
 

@@ -92,8 +92,9 @@
         </form>
 
         {{--    Delete Modal For Confirm The ADMIN for deleting the product  --}}
-        <form action="" id="form-delete">
+        <form action="" id="form-delete" method="post">
             @method('DELETE')
+            @csrf
             <div class="form-delete-container">
                 <div>
                     <h2 id="delete-album-name">Hello</h2>

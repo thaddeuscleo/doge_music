@@ -6,17 +6,21 @@
 
         <div class="album-head">
             <div class="album-head__art">
-                <img src="{{asset('storage/images/album_art.jpg')}}" alt="">
+                <img src="{{asset($album->album_art)}}" alt="">
             </div>
             <div class="album-head__desc">
                 <h2>{{$album->name}}</h2> {{--          Show Album Name       --}}
-                <p>Beatles</p> {{--          Show Artist Name       --}}
+                <p>{{$album->artist_name}}</p> {{--          Show Artist Name       --}}
                 @cannot('admin-access', auth()->user())
-                    {{--          Only Show This For Guess (start)       --}}
+                    {{--          Only Show This For Guess | Normal User (start)       --}}
                     <div class="form-control">
-                        <button>Buy</button>
+                        <form action="{{ route('purchase-confirmation', $album->id) }}" method="post">
+                            @method('post')
+                            @csrf
+                            <button>Buy - ${{$album->price}}</button>
+                        </form>
                     </div>
-                    {{--          Only Show This For Guess (end)       --}}
+                    {{--          Only Show This For Guess | Normal User (end)       --}}
                 @endcannot
             </div>
         </div>
@@ -29,7 +33,7 @@
             @foreach($songs as $song)
                 {{--       Show the all songs in this album (start)   --}}
                 <div class="song-item">
-                    <h4>{{$song->title}}</h4>  {{--       Show the song title         --}}
+                    <h4>{{$song->title}}</h4> {{--       Show the song title         --}}
                 </div>
                 {{--       Show the all songs in this album (end)   --}}
             @endforeach

@@ -64,7 +64,7 @@ for (let updateBtn of updateButtons) {
                                 <input
                                     type="text"
                                     class="song"
-                                    name="song_name[]"
+                                    name="song[]"
                                     placeholder="Song Name"
                                     value="${data.title}">
                             `
@@ -104,7 +104,7 @@ addSongButton.addEventListener('click', () => {
                 <input
                     type="text"
                     class="song"
-                    name="song_name"
+                    name="song[]"
                     placeholder="Song Name">
             `
     }

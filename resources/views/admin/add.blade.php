@@ -7,7 +7,8 @@
             <h1>Add Album</h1>
         </div>
 
-        <form action="" id="form-add" enctype="multipart/form-data">
+        <form action="{{route('store-product')}}" id="form-add" enctype="multipart/form-data" method="post">
+            @csrf
             <div class="form">
                 <div class="album-art">
                     <img src="{{ asset('storage/images/album_art.jpg') }}" alt="album_art" id="album-art">
@@ -17,7 +18,7 @@
                         <input type="text" placeholder="Album Name" name="album_name">
                         <input type="text" placeholder="Artist Name" name="artist_name">
                         <input type="text" placeholder="Price" name="price">
-                        <input type="file" placeholder="choose" id="image-input">
+                        <input type="file" placeholder="choose" id="image-input" name="album_art">
                     </div>
                     <div class="form-group__songs">
                         <div class="form-group__songs__head">
