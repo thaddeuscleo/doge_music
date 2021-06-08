@@ -3,6 +3,7 @@ services:
   app:
     build:
       context: ./
+    command: bash -c 'php artisan migrate'
     volumes:
       - .:/var/www
     ports:
