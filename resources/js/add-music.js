@@ -18,6 +18,8 @@ addSongBtn.addEventListener('click', () => {
         container.innerHTML += `
             <input type="text" name="song[]" placeholder="Song name" class="song">
         `
+    }else {
+        alert("You can only have maximum 4 song in a single album");
     }
 })
 

@@ -4,7 +4,7 @@
     <section class="login-page">
         <form class="form" action="/login" method="post">
             <div class="form__header">
-                <img src="" alt="">
+                <img src="{{ asset('storage/images/doge.png') }}" alt="">
                 <h3>Log in</h3>
             </div>
             <div class="form-control">
@@ -24,5 +24,7 @@
             @csrf
         </form>
     </section>
+
+    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
 @endsection
 

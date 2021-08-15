@@ -1,11 +1,10 @@
 <nav>
     <div class="nav-container">
-        <img class="nav-container__logo" src="{{ asset('storage/images/tidal.png') }}" alt="logo">
+        <img class="nav-container__logo" src="{{ asset('storage/images/doge_transparent.png') }}" alt="logo">
         <div class="nav-container__menu">
             <ul>
                 <li><a class="current" href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('products') }}">Products</a></li>
-                {{--                <li><a href="">About</a></li>--}}
+                <li><a href="{{ route('products') }}">Albums</a></li>
             </ul>
         </div>
     </div>
@@ -16,6 +15,12 @@
                 <button class="nav-user__register-btn">
                     <a href=" {{ route('admin-dashboard') }} ">Dashboard</a>
                 </button>
+                <form action="/logout" method="post">
+                    <div class="logout">
+                        <button>Log Out</button>
+                    </div>
+                    @csrf
+                </form>
             @else
                 <button class="nav-user__register-btn">
                     <a href=" {{ route('user-dashboard') }} ">Dashboard</a>

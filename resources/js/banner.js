@@ -1,13 +1,23 @@
+import {environment} from "./environment";
+
 let testimonyText = document.getElementById('testimony-text')
 let soundguys = document.getElementById('soundguys')
 let businessInsider = document.getElementById('business-insider')
 let pcmag = document.getElementById('pcmag')
 let techradar = document.getElementById('techradar')
 let whatHifi = document.getElementById('what-hifi')
+let joinMember = document.getElementById('join-member')
 
 setSoundGuys()
 
 let elements = [soundguys, businessInsider, pcmag, techradar, whatHifi]
+
+joinMember.addEventListener('click', () => {
+    let path = `${environment.host}register`
+    window.open(path)
+    console.log('hello')
+})
+
 
 soundguys.addEventListener('click', () => {
     elements.forEach((e) => e.classList.remove("selected"))

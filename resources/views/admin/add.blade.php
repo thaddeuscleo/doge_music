@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div id="container">
-                            <input type="text" name="song[]" placeholder="Song name" class="song">
+                            {{-- <input type="text" name="song[]" placeholder="Song name" class="song"> --}}
                         </div>
                     </div>
                 </div>
@@ -39,4 +39,5 @@
         </form>
     </section>
     <script src="{{ asset('js/add-music.js') }}"></script>
+    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
 @endsection

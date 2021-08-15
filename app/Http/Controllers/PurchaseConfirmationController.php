@@ -16,6 +16,6 @@ class PurchaseConfirmationController extends Controller
         $history->album_id = $album->id;
         $history->user_id = $user->id;
         $history->save();
-        return back();
+        return redirect()->route('product', ['id'=> $id])->with('status', 'Purchase Succesfull!');
     }
 }

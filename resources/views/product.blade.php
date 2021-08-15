@@ -40,4 +40,12 @@
         </div>
 
     </section>
+
+    @if (session('status'))    
+        <script>
+            let message = "{{session('status')}}"
+            alert(message);
+        </script>
+    @endif
+
 @endsection

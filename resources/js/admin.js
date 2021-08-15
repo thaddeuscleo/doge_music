@@ -56,7 +56,7 @@ for (let updateBtn of updateButtons) {
                     .then(data => data.json())
                     .then(data => {
                         // hide loading animation
-                        if (data.length >= 5) {
+                        if (data.length >= 4) {
                             addSongButton.classList.add("disabled")
                         }
                         data.forEach(data => {
@@ -107,6 +107,9 @@ addSongButton.addEventListener('click', () => {
                     name="song[]"
                     placeholder="Song Name">
             `
+    }else {
+        addSongButton.classList.add("disabled")
+        alert('Album can be only have 4 song maximum');
     }
 })
 

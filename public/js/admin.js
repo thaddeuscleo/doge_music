@@ -162,7 +162,7 @@ try {
           return data.json();
         }).then(function (data) {
           // hide loading animation
-          if (data.length >= 5) {
+          if (data.length >= 4) {
             addSongButton.classList.add("disabled");
           }
 
@@ -227,6 +227,9 @@ addSongButton.addEventListener('click', function () {
 
   if (songElement.length < 4) {
     container.innerHTML += "\n                <input\n                    type=\"text\"\n                    class=\"song\"\n                    name=\"song[]\"\n                    placeholder=\"Song Name\">\n            ";
+  } else {
+    addSongButton.classList.add("disabled");
+    alert('Album can be only have 4 song maximum');
   }
 });
 /*

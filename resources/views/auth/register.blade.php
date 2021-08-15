@@ -4,7 +4,7 @@
     <section class="register-page">
         <form class="form" action="/register" method="post">
             <div class="form__header">
-                <img src="" alt="">
+                <img src="{{asset('storage/images/doge.png')}}" alt="">
                 <h3>Register</h3>
             </div>
             <div class="form-control">
@@ -30,15 +30,11 @@
                 <a href="{{ route('login') }}">I already have an account</a>
             </div>
             @csrf
-            @if($errors->any())
-                <div>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
         </form>
     </section>
+
+    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
+
+
+    
 @endsection

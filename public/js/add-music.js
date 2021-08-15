@@ -33,6 +33,8 @@ imageInput.addEventListener('change', function () {
 addSongBtn.addEventListener('click', function () {
   if (songs.length < 4) {
     container.innerHTML += "\n            <input type=\"text\" name=\"song[]\" placeholder=\"Song name\" class=\"song\">\n        ";
+  } else {
+    alert("You can only have maximum 4 song in a single album");
   }
 });
 addAlbumBtn.addEventListener('click', function () {

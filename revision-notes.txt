@@ -1,0 +1,37 @@
+Navbar:
+-> [SUDAH] products diganti jadi albums aja kali ya biar lebih nyambung
+
+Home:
+-> [SUDAH] tombol join member belum jalan
+
+Detail product
+-> tombol buy nya pas di hover backgroudnnya jadi abu2 dan tulisannya tidak keliatan
+-> kalo user berhasil buy paling kasih alert aja kasi tau kalo dia success buy
+-> tampilin recent vieww blm adaa yaaa
+
+Register:
+-> kasih validation pake validator, buat password bikin jg ada minimal length sama ada ketentuan huruf besar atau hrus ada alphanumeric (klo bs)
+-> pitur register blm jalan
+-> habis register bikin redirect lgsg ke login page saja
+
+Login:
+-> kasih validation pake validator jg
+-> kalo kredensial salah belum ada error messagenya jg
+
+Dashboard user
+-> tambahin $ di depan harganya, karena gua kira itu jem wkwkw
+-> di bagian kiri kan ada profil usenrya,trus ada angka 100 itu paling kasi tau aja itu apa, misalnya Points: 100
+
+Dashboard admin
+-> [SUDAH] delete ku elloll
+SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`laravelh2s2`.`histories`, CONSTRAINT `histories_album_id_foreign` FOREIGN KEY (`album_id`) REFERENCES `albums` (`id`)) (SQL: delete from `albums` where `id` = 1)
+
+Update album
+-> kalo kosong error, kasi validasi sama error message jugaa (pas materinya validator jg)
+-> tombol add song nya kasi tau aja kalo maksimal itu 4 lagu, jd kalo dia pencet tombol add song pas lagunya udah 4 ada messagenyas
+
+Add album
+-> belum ada validasii dan error messegess jd kalo kosong bakal ellol
+-> tombol add song nya kasi tau aja kalo maksimal itu 4 lagu, jd kalo dia pencet tombol add song pas lagunya udah 4 ada messagenyas
+-> kalo gambarnya mau ada default gambar jg tambahin logicnya brrti, soalnya pas add kan dikasih preview gambar si beatle jd kayak kesannya ada default gambar, kalo gaada berarti jgn kasi gambar beatlesnya, dikosongin aja dlu
+-> kayanay abis gua insert album pake gambar baru, gambar album defaultnya yang art_image.jpg ilang dah, entah apa gara2 gua td add error jadi gitu

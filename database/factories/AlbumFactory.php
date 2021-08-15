@@ -34,7 +34,7 @@ class AlbumFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'album_art' => "test",
+            'album_art' => "images/album_art.jpg",
             'price' => $this->faker->randomFloat(NULL, $min = 5, $max = 20),
             'artist_name' => $this->faker->randomElement($generation20_2)
         ];

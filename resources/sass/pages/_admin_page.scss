@@ -221,11 +221,12 @@
                 grid-gap: 2rem;
 
                 .album-form-group {
-                    width: 80%;
+                    width: 88%;
                     margin: 0 auto;
 
                     h2 {
                         font-size: 2rem;
+                        margin-top: 1em;
                     }
 
                     .form-control {
@@ -233,8 +234,9 @@
 
                         input {
                             width: 100%;
-                            margin: .4em;
-                            padding: 1.6em;
+                            margin: .4em 0;
+                            padding: 1.6em 0;
+                            text-indent: 1.6em;
                             border-radius: 2rem;
                             border: none;
 
@@ -252,7 +254,7 @@
                 }
 
                 .song-form-group {
-                    width: 80%;
+                    width: 85%;
                     margin: 0 auto;
 
                     .header {
@@ -276,7 +278,7 @@
                             }
 
                             button {
-                                width: 15%;
+                                width: 50%;
                                 padding: 1.2em;
                                 border-radius: 2rem;
                                 border: none;
@@ -298,8 +300,9 @@
 
                         input {
                             width: 100%;
-                            margin: .4em;
-                            padding: 1.6em;
+                            margin: .4em 0;
+                            padding: 1.6em 0;
+                            text-indent: 1.6em;
                             border-radius: 2rem;
                             border: none;
 

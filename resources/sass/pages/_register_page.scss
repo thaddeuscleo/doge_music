@@ -20,6 +20,10 @@
             align-items: center;
             flex-direction: column;
 
+            img {
+                height: 180px;
+            }
+
             h3 {
                 @include large-heading-font(1.5rem);
                 margin: 2em;

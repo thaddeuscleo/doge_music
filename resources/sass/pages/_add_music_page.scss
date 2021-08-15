@@ -24,28 +24,33 @@
             grid-gap: 1em;
 
             .album-art {
+                width: 100%;
                 display: flex;
                 justify-content: flex-start;
 
                 img {
-                    width: 40rem;
-                    height: 40rem;
+                    width: 100%;
+                    // width: 40rem;
+                    // height: 40rem;
                     object-fit: cover;
                 }
             }
 
             .form-group {
                 width: 100%;
+                padding: 1em;
 
                 &__album {
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
 
                     input {
                         width: 100%;
-                        margin: .8em;
-                        padding: 1em;
+                        margin: .8em 0;
+                        padding: 1em 0;
                         border-radius: 10px;
+                        text-indent: 1em;
                         border: none;
 
                         &:focus {
@@ -53,7 +58,7 @@
                         }
 
                         &[type="file"] {
-                            padding: .8em;
+                            padding: .8em 0;
                             color: white;
                             cursor: pointer;
                         }
@@ -94,9 +99,10 @@
 
                     #container {
                         input {
-                            margin: .8em;
+                            margin: .8em 0;
                             width: 100%;
-                            padding: 1em;
+                            padding: 1em 0;
+                            text-indent: 1em;
                             border-radius: 10px;
                             border: none;
 
@@ -110,12 +116,13 @@
         }
 
         .submit-btn {
+            margin: 2em 0;
             width: 100%;
             display: flex;
             justify-content: flex-end;
 
             button {
-                width: 20rem;
+                width: 45%;
                 padding: .8em;
                 background-color: #5f8941;
                 color: white;

@@ -16,7 +16,7 @@ nav {
         padding: 1.4em;
 
         &__logo {
-            height: 20px;
+            height: 120px;
             object-fit: cover;
         }
 
@@ -48,6 +48,9 @@ nav {
     }
 
     .nav-user {
+        display: flex;
+        align-items: center;
+
         &__login {
             @include menu-font;
             font-size: 20px;
@@ -57,6 +60,19 @@ nav {
         &__register-btn {
             margin: 2em;
             @include accent-outline-btn;
+        }
+
+        form {
+            @include danger-btn;
+        }
+
+        .logout {
+            margin-right: 1em;
+            button {
+                padding: .8em 1.8em;
+                font-size: 14pt;
+                margin: 1em 0;
+            }
         }
     }
 }

@@ -1870,6 +1870,8 @@ imageInput.addEventListener('change', function () {
 addSongBtn.addEventListener('click', function () {
   if (songs.length < 4) {
     container.innerHTML += "\n            <input type=\"text\" name=\"song[]\" placeholder=\"Song name\" class=\"song\">\n        ";
+  } else {
+    alert("You can only have maximum 4 song in a single album");
   }
 });
 addAlbumBtn.addEventListener('click', function () {
@@ -1970,7 +1972,7 @@ try {
           return data.json();
         }).then(function (data) {
           // hide loading animation
-          if (data.length >= 5) {
+          if (data.length >= 4) {
             addSongButton.classList.add("disabled");
           }
 
@@ -2035,6 +2037,9 @@ addSongButton.addEventListener('click', function () {
 
   if (songElement.length < 4) {
     container.innerHTML += "\n                <input\n                    type=\"text\"\n                    class=\"song\"\n                    name=\"song[]\"\n                    placeholder=\"Song Name\">\n            ";
+  } else {
+    addSongButton.classList.add("disabled");
+    alert('Album can be only have 4 song maximum');
   }
 });
 /*
@@ -2088,7 +2093,11 @@ __webpack_require__(/*! ./add-music */ "./resources/js/add-music.js");
 /*!********************************!*\
   !*** ./resources/js/banner.js ***!
   \********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./environment */ "./resources/js/environment.js");
 
 var testimonyText = document.getElementById('testimony-text');
 var soundguys = document.getElementById('soundguys');
@@ -2096,8 +2105,14 @@ var businessInsider = document.getElementById('business-insider');
 var pcmag = document.getElementById('pcmag');
 var techradar = document.getElementById('techradar');
 var whatHifi = document.getElementById('what-hifi');
+var joinMember = document.getElementById('join-member');
 setSoundGuys();
 var elements = [soundguys, businessInsider, pcmag, techradar, whatHifi];
+joinMember.addEventListener('click', function () {
+  var path = "".concat(_environment__WEBPACK_IMPORTED_MODULE_0__.environment.host, "register");
+  window.open(path);
+  console.log('hello');
+});
 soundguys.addEventListener('click', function () {
   elements.forEach(function (e) {
     return e.classList.remove("selected");

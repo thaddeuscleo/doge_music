@@ -6,6 +6,7 @@ use App\Models\Album;
 use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -28,6 +29,17 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        Validator::make($request->all(), [
+            'album_name' => "required|min:10",
+            'artist_name' => "required|min:5",
+            'price' => "required",
+            "album_art" => "required",
+            'song' => "required|min:2"
+        ], [
+            'song.min' => "You must at least add 2 songs"
+        ])->validate();
+
+
         $album = new Album();
         $album->name = $request->get('album_name');
         $album->artist_name = $request->get('artist_name');
@@ -62,6 +74,17 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        Validator::make($request->all(), [
+            'album_name' => "required|min:10",
+            'artist_name' => "required|min:5",
+            'price' => "required",
+            "album_art" => "required",
+            'song' => "required|min:2"
+        ], [
+            'song.min' => "You must at least add 2 songs"
+        ])->validate();
+
         $album = Album::findOrFail($id);
         $album->name = $request->get('album_name');
         $album->artist_name = $request->get('artist_name');
