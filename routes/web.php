@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseConfirmationController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
 Route::get('/home', function () {
     return view('home');

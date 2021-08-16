@@ -6749,6 +6749,16 @@ footer .copyright__socials ul li i:hover {
   font-style: normal;
   color: white;
 }
+.login-page .form .remember-me {
+  width: 26%;
+  margin: 0 auto;
+}
+.login-page .form .remember-me label {
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  font-size: 11pt;
+  color: white;
+}
 .login-page .form__header {
   display: flex;
   align-items: center;

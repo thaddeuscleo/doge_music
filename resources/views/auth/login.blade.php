@@ -17,6 +17,10 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="password">
             </div>
+            <div class="remember-me">
+                <input type="checkbox" name="remember_me" id="remember" placeholder="remember">
+                <label for="remember">remember me</label>
+            </div>
             <div class="form-control">
                 <button>Log In</button>
             </div>
