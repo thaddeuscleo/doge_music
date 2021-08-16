@@ -8,7 +8,9 @@
             <div class="hero-banner__section">
                 <div class="hero-banner__section__text">
                     <h1>Clearly the best sound.</h1>
-                    <button id="join-member">Join Member</button>
+                    @if (!auth()->user())
+                        <button id="join-member">Join Member</button>
+                    @endif
                 </div>
             </div>
         </div>

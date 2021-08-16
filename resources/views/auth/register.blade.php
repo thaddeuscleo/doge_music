@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('layouts.back')
+    
     <section class="register-page">
         <form class="form" action="/register" method="post">
             <div class="form__header">

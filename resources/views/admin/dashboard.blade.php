@@ -89,6 +89,7 @@
             <div class="update-modal-cross" id="close-update-modal-btn">
                 <i class="fas fa-times fa-2x"></i>
             </div>
+            @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
         </form>
 
         {{--    Delete Modal For Confirm The ADMIN for deleting the product  --}}
@@ -107,7 +108,53 @@
         </form>
 
     </section>
-    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
+    
     <script src="{{asset('js/admin.js')}}"></script>
+
+    
+
+    @if ($errors->any())
+        <script>
+            const errID = "{{ Session::get('pid') }}";
+            console.log(errID);
+            const formUpdate = document.getElementById('form-update')
+            const container = document.getElementById('song-container')
+            const albumNameField = document.getElementById('album-name')
+            const artistNameField = document.getElementById('artist-name')
+            const priceField = document.getElementById('price')
+            const addSongButton = document.getElementById('add-song-btn')
+            formUpdate.style.display = "block";
+            let URL = `${'http://127.0.0.1:8000/'}api/albums/${errID}`
+            container.innerHTML = ""
+            fetch(URL)
+                .then(value => value.json())
+                .then(value => {
+                    albumNameField.value = value.name
+                    artistNameField.value = value.artist_name
+                    priceField.value = value.price
+                    formUpdate.action = `${'http://127.0.0.1:8000/'}product/${value.id}`
+                    // show loading animation
+                    fetch(`${'http://127.0.0.1:8000/'}api/songs/${value.id}`)
+                        .then(data => data.json())
+                        .then(data => {
+                            // hide loading animation
+                            if (data.length >= 4) {
+                                addSongButton.classList.add("disabled")
+                            }
+                            data.forEach(data => {
+                                container.innerHTML += `
+                                    <input
+                                        type="text"
+                                        class="song"
+                                        name="song[]"
+                                        placeholder="Song Name"
+                                        value="${data.title}">
+                                `
+                            })
+                        })
+                })
+        </script>
+
+    @endif
 @endsection
 

@@ -32,7 +32,7 @@ class ProductController extends Controller
         Validator::make($request->all(), [
             'album_name' => "required|min:10",
             'artist_name' => "required|min:5",
-            'price' => "required",
+            'price' => "required|max:100",
             "album_art" => "required",
             'song' => "required|min:2",
             'song.*' => "required|string|min:5"
@@ -76,11 +76,11 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        $request->session()->put('pid', $id);
         Validator::make($request->all(), [
             'album_name' => "required|min:10",
             'artist_name' => "required|min:5",
-            'price' => "required",
+            'price' => "required|max:100",
             'song' => "required|min:2",
             'song.*' => "required|string|min:5"
         ], [

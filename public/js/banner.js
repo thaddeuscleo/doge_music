@@ -92,11 +92,15 @@ var whatHifi = document.getElementById('what-hifi');
 var joinMember = document.getElementById('join-member');
 setSoundGuys();
 var elements = [soundguys, businessInsider, pcmag, techradar, whatHifi];
-joinMember.addEventListener('click', function () {
-  var path = "".concat(_environment__WEBPACK_IMPORTED_MODULE_0__.environment.host, "register");
-  window.open(path);
-  console.log('hello');
-});
+
+if (joinMember) {
+  joinMember.addEventListener('click', function () {
+    var path = "".concat(_environment__WEBPACK_IMPORTED_MODULE_0__.environment.host, "register");
+    window.open(path);
+    console.log('hello');
+  });
+}
+
 soundguys.addEventListener('click', function () {
   elements.forEach(function (e) {
     return e.classList.remove("selected");

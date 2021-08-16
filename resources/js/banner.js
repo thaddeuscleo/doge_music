@@ -12,11 +12,14 @@ setSoundGuys()
 
 let elements = [soundguys, businessInsider, pcmag, techradar, whatHifi]
 
-joinMember.addEventListener('click', () => {
-    let path = `${environment.host}register`
-    window.open(path)
-    console.log('hello')
-})
+if(joinMember){
+    joinMember.addEventListener('click', () => {
+        let path = `${environment.host}register`
+        window.open(path)
+        console.log('hello')
+    })
+}
+
 
 
 soundguys.addEventListener('click', () => {

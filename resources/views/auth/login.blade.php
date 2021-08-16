@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('layouts.back')
+
     <section class="login-page">
         <form class="form" action="/login" method="post">
             <div class="form__header">
