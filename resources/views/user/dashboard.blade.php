@@ -32,7 +32,7 @@
                             <h3>{{ $album->name }}</h3>
                             <div class="detail">
                                 <p>{{ $date }}</p>
-                                <p>{{ $album->price }}</p>
+                                <p>${{ $album->price }}</p>
                             </div>
                         </div>
                     @endforeach

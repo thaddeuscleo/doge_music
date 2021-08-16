@@ -13,7 +13,7 @@
                 @foreach($albums as $album)
                     <a href="{{route('product', $album->id)}}">
                         <div class="album-item">
-                            <img src="{{ asset($album->album_art) }}" alt="">
+                            <img src="{{ asset('storage/' . $album->album_art) }}" alt="">
                             <p>
                                 {{$album->name}}
                             </p>
@@ -23,7 +23,6 @@
                 @endforeach
             </div>
         </div>
-
         {{$albums->links('vendor.pagination.custom')}}
     </section>
 @endsection

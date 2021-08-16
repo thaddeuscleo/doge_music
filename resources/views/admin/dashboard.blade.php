@@ -107,6 +107,7 @@
         </form>
 
     </section>
+    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
     <script src="{{asset('js/admin.js')}}"></script>
 @endsection
 

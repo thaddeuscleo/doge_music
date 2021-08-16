@@ -34,9 +34,11 @@ class ProductController extends Controller
             'artist_name' => "required|min:5",
             'price' => "required",
             "album_art" => "required",
-            'song' => "required|min:2"
+            'song' => "required|min:2",
+            'song.*' => "required|string|min:5"
         ], [
-            'song.min' => "You must at least add 2 songs"
+            'song.min' => "The album shold have at least 2 songs",
+            'song.*.required' => "The song name is required"
         ])->validate();
 
 
@@ -45,8 +47,8 @@ class ProductController extends Controller
         $album->artist_name = $request->get('artist_name');
         $album->price = $request->get('price');
         if (!empty($request->album_art)) {
-            $path = $request->album_art->store('images', 'local');
-            $album->album_art = $path;
+            $path = $request->album_art->store('public/images', 'local');
+            $album->album_art = str_replace('public/', '', $path);
         }
         $album->save();
         $song_arr = $request->get('song');
@@ -79,10 +81,11 @@ class ProductController extends Controller
             'album_name' => "required|min:10",
             'artist_name' => "required|min:5",
             'price' => "required",
-            "album_art" => "required",
-            'song' => "required|min:2"
+            'song' => "required|min:2",
+            'song.*' => "required|string|min:5"
         ], [
-            'song.min' => "You must at least add 2 songs"
+            'song.min' => "You must at least add 2 songs",
+            'song.*.required' => "The song name is required"
         ])->validate();
 
         $album = Album::findOrFail($id);

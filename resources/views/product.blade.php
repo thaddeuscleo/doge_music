@@ -6,7 +6,7 @@
 
         <div class="album-head">
             <div class="album-head__art">
-                <img src="{{asset($album->album_art)}}" alt="">
+                <img src="{{ asset('storage/' . $album->album_art) }}" alt="">
             </div>
             <div class="album-head__desc">
                 <h2>{{$album->name}}</h2> {{--          Show Album Name       --}}
