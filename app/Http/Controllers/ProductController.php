@@ -2,116 +2,89 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Album;
-use App\Models\Song;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
 
     public function index()
     {
-        $albums = Album::paginate(20);
-        $params = [
-            "albums" => $albums
-        ];
-        return view('products', $params);
+        /**
+         * TODO:
+         * - Show 20 rows each page
+         */
+        
+         //Code starts here
+         return view('products');
     }
 
 
     public function create()
     {
-        return view('admin.add');
+        /**
+         * TODO:
+         * - Redirect to admin add page
+         */
+
+         //Code starts here
     }
 
 
     public function store(Request $request)
     {
-        Validator::make($request->all(), [
-            'album_name' => "required|min:10",
-            'artist_name' => "required|min:5",
-            'price' => "required|max:100",
-            "album_art" => "required",
-            'song' => "required|min:2",
-            'song.*' => "required|string|min:5"
-        ], [
-            'song.min' => "The album shold have at least 2 songs",
-            'song.*.required' => "The song name is required"
-        ])->validate();
+        /**
+         * TODO:
+         * - Validate album name have a minimum 10 characters long and cannot be empty
+         * - Validate artist name have a minimum 5 character long and cannot be empty
+         * - Validate price with maximum price $100
+         * - Validate album art cannot be empty
+         * - Validate songs must be at least 2 song in an album
+         * - Validate song name cannot be empty and minimum 5 characters long
+         * - Send Error message to the user
+         * - Store the data in the database
+         * - Store the album art in the file system
+         */
 
-
-        $album = new Album();
-        $album->name = $request->get('album_name');
-        $album->artist_name = $request->get('artist_name');
-        $album->price = $request->get('price');
-        if (!empty($request->album_art)) {
-            $path = $request->album_art->store('public/images', 'local');
-            $album->album_art = str_replace('public/', '', $path);
-        }
-        $album->save();
-        $song_arr = $request->get('song');
-        collect($song_arr)->map(function ($name) use ($album) {
-            $song = new Song();
-            $song->title = $name;
-            $song->album_id = $album->id;
-            $song->save();
-        });
-        return back();
+         //Code starts here
     }
 
 
     public function show($id)
     {
-        $album = Album::findOrFail($id);
-        $songs = Song::where('album_id', $id)->get();
-        $params = [
-            'album' => $album,
-            'songs' => $songs
-        ];
-        return view('product', $params);
+        /**
+         * TODO:
+         * - Get the album & song from the database
+         */
+
+         //Code starts here
     }
 
 
     public function update(Request $request, $id)
     {
-        $request->session()->put('pid', $id);
-        Validator::make($request->all(), [
-            'album_name' => "required|min:10",
-            'artist_name' => "required|min:5",
-            'price' => "required|max:100",
-            'song' => "required|min:2",
-            'song.*' => "required|string|min:5"
-        ], [
-            'song.min' => "You must at least add 2 songs",
-            'song.*.required' => "The song name is required"
-        ])->validate();
+        /**
+         * TODO:
+         * - Validate album name have a minimum 10 characters long and cannot be empty
+         * - Validate artist name have a minimum 5 character long and cannot be empty
+         * - Validate price with maximum price $100
+         * - Validate songs must be at least 2 song in an album
+         * - Validate song name cannot be empty and minimum 5 characters long
+         * - Send Error message to the user
+         * - Store the data in the database
+         * - Store the album art in the file system
+         */
 
-        $album = Album::findOrFail($id);
-        $album->name = $request->get('album_name');
-        $album->artist_name = $request->get('artist_name');
-        $album->price = $request->get('price');
-        $album->save();
-
-        Song::where('album_id', $album->id)->delete();
-
-        $song_arr = $request->get('song');
-        collect($song_arr)->map(function ($name) use ($album) {
-            $song = new Song();
-            $song->title = $name;
-            $song->album_id = $album->id;
-            $song->save();
-        });
-        return back();
+         //Code starts here
     }
 
 
     public function destroy($id)
     {
-        $album = Album::find($id);
-        Storage::delete($album->album_art);
-        $album->delete();
-        return back();
+        /**
+         * TODO:
+         * - Delete the album according to the requested id
+         */
+
+         //Code starts here
     }
 }

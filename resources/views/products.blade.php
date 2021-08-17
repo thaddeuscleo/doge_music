@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('search')
+    {{-- Include Search Here --}}
     <section class="products-page">
 
         <div class="products-page__head">
@@ -10,20 +10,21 @@
 
         <div class="albums-container">
             <div class="albums">
-                @foreach($albums as $album)
-                    <a href="{{route('product', $album->id)}}">
-                        <div class="album-item">
-                            <img src="{{ asset('storage/' . $album->album_art) }}" alt="">
-                            <p>
-                                {{$album->name}}
-                            </p>
-                            <div class="overlay">View Album</div>
-                        </div>
-                    </a>
-                @endforeach
+                {{-- TODO: Loop Albums Starts Here --}}
+                <a href="{{-- TODO: Navigate to product page --}}">
+                    <div class="album-item">
+                        <img src="{{-- TODO: Show album art --}}" alt="">
+                        <p>
+                            {{-- TODO: Show album name --}}
+                        </p>
+                        <div class="overlay">View Album</div>
+                    </div>
+                </a>
+                {{-- Loop Albums Ends Here --}}
             </div>
         </div>
-        {{$albums->links('vendor.pagination.custom')}}
+
+        {{-- TODO: Pagination Link Here --}}
     </section>
 @endsection
 

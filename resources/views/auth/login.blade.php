@@ -11,26 +11,24 @@
             </div>
             <div class="form-control">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="john@email.com">
+                <input type="email" id="email" placeholder="john@email.com">
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="password">
+                <input type="password" id="password" placeholder="password">
             </div>
             <div class="remember-me">
-                <input type="checkbox" name="remember_me" id="remember" placeholder="remember">
+                <input type="checkbox" id="remember" placeholder="remember">
                 <label for="remember">remember me</label>
             </div>
             <div class="form-control">
                 <button>Log In</button>
             </div>
             <div class="form-control">
-                <a href="{{ route('register') }}">I don't have an account yet</a>
+                <a href="{{--  TODO: Navigate To register page --}}">I don't have an account yet</a>
             </div>
-            @csrf
         </form>
     </section>
 
-    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
+    {{--  TODO: Include error layout when there is invalid field --}}
 @endsection
-

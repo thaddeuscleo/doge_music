@@ -7,7 +7,7 @@
         <div class="admin-page__head">
             <h1>Manage Album's</h1>
             <div class="add-icon">
-                <a href="{{route('add-product')}}">
+                <a href="{{--  TODO: Navigate to add product page --}}">
                     <i class="fas fa-plus"></i>
                 </a>
             </div>
@@ -26,36 +26,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--        Loop All Album starts Here        --}}
-                @foreach($albums as $album)
+                {{--  TODO: Loop All Products starts Here --}}
                     <tr>
-                        <th scope="row"><p>{{ $album->id }}</p></th>
-                        <td><p>{{$album->name}}</p></td>
-                        <td><p>{{$album->artist_name}}</p></td>
-                        <td><p>${{$album->price}}</p></td>
-                        <td><p>{{$album->created_at->toFormattedDateString() }}</p></td>
+                        <th scope="row"><p>{{--  TODO: Show the product id --}}</p></th>
+                        <td><p>{{--  TODO: Show the album --}}</p></td>
+                        <td><p>{{--  TODO: Show the artist name --}}</p></td>
+                        <td><p>${{--  TODO: Show the product price --}}</p></td>
+                        <td><p>{{--  TODO: Show the launch date --}}</p></td>
                         <td>
                             <div class="actions">
-                                <button class="view-btn" value="{{$album->id}}">View</button>
-                                <button class="update-btn" value="{{$album->id}}">Update</button>
-                                <button class="delete-btn" value="{{$album->id}}">Delete</button>
+                                <button class="view-btn">View</button>
+                                <button class="update-btn">Update</button>
+                                <button class="delete-btn">Delete</button>
                             </div>
                         </td>
                     </tr>
-                @endforeach
-                {{--        Loop All Product ends Here        --}}
+                {{--  Loop All Products ends Here --}}
                 </tbody>
             </table>
         </div>
 
-        {{--    Pagination Pages Start Here    --}}
-        {{$albums->links('vendor.pagination.custom')}}
-        {{--    Pagination Pages Ends Here    --}}
-
+        {{--   TODO: Pagination Link Here    --}}
+        
         {{--    Update Modal For Updating the product data (Album & Songs)   --}}
         <form action="" id="form-update" method="post">
-            @method('PUT')
-            @csrf
             <div class="update-modal">
                 <h2>Update Album</h2>
                 <div class="form">
@@ -89,13 +83,11 @@
             <div class="update-modal-cross" id="close-update-modal-btn">
                 <i class="fas fa-times fa-2x"></i>
             </div>
-            @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
+            {{-- TODO: Show Error Message Using The Error Template Layout here --}}
         </form>
 
         {{--    Delete Modal For Confirm The ADMIN for deleting the product  --}}
         <form action="" id="form-delete" method="post">
-            @method('DELETE')
-            @csrf
             <div class="form-delete-container">
                 <div>
                     <h2 id="delete-album-name">Hello</h2>
@@ -106,55 +98,9 @@
                 </div>
             </div>
         </form>
-
     </section>
     
     <script src="{{asset('js/admin.js')}}"></script>
-
     
-
-    @if ($errors->any())
-        <script>
-            const errID = "{{ Session::get('pid') }}";
-            console.log(errID);
-            const formUpdate = document.getElementById('form-update')
-            const container = document.getElementById('song-container')
-            const albumNameField = document.getElementById('album-name')
-            const artistNameField = document.getElementById('artist-name')
-            const priceField = document.getElementById('price')
-            const addSongButton = document.getElementById('add-song-btn')
-            formUpdate.style.display = "block";
-            let URL = `${'http://127.0.0.1:8000/'}api/albums/${errID}`
-            container.innerHTML = ""
-            fetch(URL)
-                .then(value => value.json())
-                .then(value => {
-                    albumNameField.value = value.name
-                    artistNameField.value = value.artist_name
-                    priceField.value = value.price
-                    formUpdate.action = `${'http://127.0.0.1:8000/'}product/${value.id}`
-                    // show loading animation
-                    fetch(`${'http://127.0.0.1:8000/'}api/songs/${value.id}`)
-                        .then(data => data.json())
-                        .then(data => {
-                            // hide loading animation
-                            if (data.length >= 4) {
-                                addSongButton.classList.add("disabled")
-                            }
-                            data.forEach(data => {
-                                container.innerHTML += `
-                                    <input
-                                        type="text"
-                                        class="song"
-                                        name="song[]"
-                                        placeholder="Song Name"
-                                        value="${data.title}">
-                                `
-                            })
-                        })
-                })
-        </script>
-
-    @endif
 @endsection
 

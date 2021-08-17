@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PurchaseConfirmationController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +58,6 @@ Route::put('/product/{id}', [ProductController::class, 'update'])
     ->name('product')
     ->middleware('auth');
 
-Route::post('/purchase-confirmation/{id}', [PurchaseConfirmationController::class, 'store'])
+Route::post('/purchase-confirmation/{id}', [PurchaseController::class, 'store'])
     ->name('purchase-confirmation')
     ->middleware('auth');

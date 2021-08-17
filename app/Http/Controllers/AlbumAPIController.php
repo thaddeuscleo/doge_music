@@ -8,10 +8,21 @@ class AlbumAPIController extends Controller
 {
     public function search($search)
     {
-        return Album::where("name", "LIKE", "%{$search}%")->limit(5)->get();
+        /**
+         * TODO:
+         * - Query The album name according to the search parameter
+         * - Query top 5 album name
+         */
+
+        //Code starts here...
     }
 
     public function get($id){
-        return Album::findOrFail($id);
+        /**
+         * TODO:
+         * - Get the album by id
+         */
+        
+        //Code starts here...
     }
 }

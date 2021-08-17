@@ -29,14 +29,10 @@
                 <button>Register</button>
             </div>
             <div class="form-control">
-                <a href="{{ route('login') }}">I already have an account</a>
+                <a href="{{--  TODO: Navigate to login page --}}">I already have an account</a>
             </div>
-            @csrf
         </form>
     </section>
 
-    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
-
-
-    
+    {{--  TODO: Include error layout when there is invalid field --}}
 @endsection

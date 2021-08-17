@@ -6,27 +6,17 @@ const container = document.getElementById('container')
 const addSongBtn = document.getElementById('add-song')
 const songs = document.getElementsByClassName('song')
 
-imageInput.addEventListener('change', () => {
-    const [file] = imageInput.files
-    if (file) {
-        albumArt.src = URL.createObjectURL(file)
-    }
-})
+/**
+ * TODO:
+ * - Show image preview when user picked an image from filesystem
+ */
 
 addSongBtn.addEventListener('click', () => {
-    if (songs.length < 4) {
-        container.innerHTML += `
-            <input type="text" name="song[]" placeholder="Song name" class="song">
-        `
-    }else {
-        alert("You can only have maximum 4 song in a single album");
-    }
-})
+    /**
+     * TODO: 
+     * - add field when the field is still less than 4
+     * - Alert the user if the user reach the maximum limit
+     */
 
-addAlbumBtn.addEventListener('click', () => {
-    formAdd.submit();
-})
-
-formAdd.addEventListener('submit', ev => {
-    ev.preventDefault()
+    // Code starts here...
 })

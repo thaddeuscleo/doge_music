@@ -8,9 +8,9 @@
             <div class="hero-banner__section">
                 <div class="hero-banner__section__text">
                     <h1>Clearly the best sound.</h1>
-                    @if (!auth()->user())
+                    {{-- TODO: Show Join Member Starts Here --}}
                         <button id="join-member">Join Member</button>
-                    @endif
+                    {{-- Show Join Member Ends Here --}}
                 </div>
             </div>
         </div>

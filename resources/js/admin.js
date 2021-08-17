@@ -1,4 +1,4 @@
-import {environment} from "./environment";
+import { environment } from "./environment";
 
 // Action Buttons
 const viewButtons = document.getElementsByClassName('view-btn')
@@ -22,122 +22,73 @@ const artistNameField = document.getElementById('artist-name')
 const priceField = document.getElementById('price')
 
 
-/*
-* Opens a new tab by pressing the view button on the table
-* the button uses {view-btn} from the html tag so make sure to not
-* remove the class
-*/
-for (let viewBtn of viewButtons) {
-    viewBtn.addEventListener("click", () => {
-        window.open(`${environment.host}product/${viewBtn.value}`)
-    })
-}
+/**
+ * TOOD:
+ * - Opens a new tab by pressing the view button on the table
+ *   the button uses {view-btn} from the html tag so make sure to not
+ *   remove the class
+ */
+  // View starts here...
 
-/*
-* Show a update modal by pressing the update button on the table
-* the button uses {update-btn} from the html tag so make sure to not
-* remove the class. This is were the AJAX request happen for getting
-* the data from the API.
-*/
-for (let updateBtn of updateButtons) {
-    updateBtn.addEventListener("click", () => {
-        formUpdate.style.display = "block";
-        let URL = `${environment.host}api/albums/${updateBtn.value}`
-        container.innerHTML = ""
-        fetch(URL)
-            .then(value => value.json())
-            .then(value => {
-                albumNameField.value = value.name
-                artistNameField.value = value.artist_name
-                priceField.value = value.price
-                formUpdate.action = `${environment.host}product/${value.id}`
-                // show loading animation
-                fetch(`${environment.host}api/songs/${value.id}`)
-                    .then(data => data.json())
-                    .then(data => {
-                        // hide loading animation
-                        if (data.length >= 4) {
-                            addSongButton.classList.add("disabled")
-                        }
-                        data.forEach(data => {
-                            container.innerHTML += `
-                                <input
-                                    type="text"
-                                    class="song"
-                                    name="song[]"
-                                    placeholder="Song Name"
-                                    value="${data.title}">
-                            `
-                        })
-                    })
-            })
-    })
-}
 
-/*
-* Show a delete modal by pressing the delete button on the table
-* the button uses {delete-btn} from the html tag so make sure to not
-* remove the class.
-*/
-for (let deleteBtn of deleteButtons) {
-    deleteBtn.addEventListener("click", () => {
-        let URL = `${environment.host}api/albums/${deleteBtn.value}`
-        fetch(URL)
-            .then(value => value.json())
-            .then(value => {
-                let message = `Are you sure want to delete ${value.name}`
-                formDelete.action = `${environment.host}product/${value.id}`
-                deleteAlbumName.innerText = message
-                formDelete.style.display = "block"
-            })
-    })
-}
 
-/*
-* This is where the add button add the input element of the form
-* and the form can be only have 5 input maximum
-*/
-addSongButton.addEventListener('click', () => {
-    let songElement = document.getElementsByClassName('song')
-    if (songElement.length < 4) {
-        container.innerHTML += `
-                <input
-                    type="text"
-                    class="song"
-                    name="song[]"
-                    placeholder="Song Name">
-            `
-    }else {
-        addSongButton.classList.add("disabled")
-        alert('Album can be only have 4 song maximum');
-    }
-})
+  // View modal ends here
 
-/*
-* Disables the submit functionality when button clicked.
-* This is to prevent submission when the add input field
-* button pressed
-*/
-formUpdate.addEventListener('submit', ev => {
-    ev.preventDefault()
-})
 
-updateFormSubmit.addEventListener('click', () => {
-    formUpdate.submit()
-})
+/**
+ * TODO:
+ * - Show a update modal by pressing the update button on the table
+ *   the button uses {update-btn} from the html tag so make sure to not
+ *   remove the class. This is were the AJAX request happen for getting
+ *   the data from the API.
+ * - Get album information using fetch method
+ * - To display the update prompt use:
+ *   { formUpdate.style.display = "block" }
+ */
+  // Update modal starts here...
 
-closeUpdateModalBtn.addEventListener('click', () => {
-    formUpdate.style.display = "none"
-})
 
-formDelete.addEventListener('submit', ev => {
-    ev.preventDefault()
-})
 
-cancelDeleteBtn.addEventListener('click', () => {
-    formDelete.style.display = "none"
-})
+  // Update modal ends here
 
-confirmDeleteBtn.addEventListener('click', () => {
-    formDelete.submit()
-})
+
+
+
+/**
+ * TODO:
+ * - Show a delete modal by pressing the delete button on the table
+ *   the button uses {delete-btn} from the html tag so make sure to not
+ *   remove the class.
+ * - Get album name using fetch method
+ * - To display the delete prompt use:
+ *   { formDelete.style.display = "block" }
+ */
+  // Delete modal starts here...
+
+
+
+  // Delete modal ends here
+
+
+
+
+/**
+ * TODO:
+ * - This is where the add button add the input element of the form
+ *   and the form can be only have 4 input maximum
+ * - If the user reached the maximum limit the alert the user
+ */
+  // Add Song modal starts here...
+
+
+
+  // Add Song modal ends here
+
+
+
+/**
+ * TODO:
+ * Disables the submit functionality when button clicked.
+ * This is to prevent submission when the add input field
+ * button pressed
+ */

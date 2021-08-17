@@ -7,11 +7,10 @@
             <h1>Add Album</h1>
         </div>
 
-        <form action="{{route('store-product')}}" id="form-add" enctype="multipart/form-data" method="post">
-            @csrf
+        <form action="" id="form-add" enctype="multipart/form-data" method="post">
             <div class="form">
                 <div class="album-art">
-                    <img src="{{ asset('storage/images/album_art.jpg') }}" alt="album_art" id="album-art">
+                    <img src="" alt="album_art" id="album-art">
                 </div>
                 <div class="form-group">
                     <div class="form-group__album">
@@ -28,7 +27,7 @@
                             </div>
                         </div>
                         <div id="container">
-                            {{-- <input type="text" name="song[]" placeholder="Song name" class="song"> --}}
+                            <input type="text" name="song[]" placeholder="Song name" class="song">
                         </div>
                     </div>
                 </div>
@@ -39,5 +38,5 @@
         </form>
     </section>
     <script src="{{ asset('js/add-music.js') }}"></script>
-    @includeWhen($errors->any(), 'layouts.errors', ['errors' => $errors])
+    {{-- TODO: Show Error Message Using The Error Template Layout here --}}
 @endsection
