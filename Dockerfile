@@ -3,6 +3,10 @@ WORKDIR /app
 COPY . /app
 RUN composer install
 
+FROM node:16
+RUN npm install
+RUN npm run prod
+
 FROM php:7.3-apache-stretch
 RUN docker-php-ext-install pdo pdo_mysql
 
