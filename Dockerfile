@@ -1,10 +1,12 @@
 FROM composer:2.1.9 as build
-FROM node:16
 
 WORKDIR /app
 COPY . /app
 RUN composer install
 
+FROM node:16
+WORKDIR /app
+COPY . /app
 RUN npm install
 RUN npm run prod
 
