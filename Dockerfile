@@ -23,4 +23,4 @@ RUN chmod 777 -R /var/www/storage/ && \
     a2enmod rewrite
  
 RUN php /var/www/artisan storage:link
-CMD php /var/www/artisan migrate --seed
+CMD php /var/www/artisan migrate --seed --force
