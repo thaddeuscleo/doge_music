@@ -14,6 +14,7 @@ FROM php:7.3-apache-stretch
 RUN apt-get update && apt-get install -y libpq-dev
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 RUN docker-php-ext-install pdo pdo_pgsql pgsql
+RUN docker-php-ext-enable pdo pdo_pgsql pgsql
 
 EXPOSE 8080
 COPY --from=build /app /var/www/
@@ -25,3 +26,4 @@ RUN chmod 777 -R /var/www/storage/ && \
     a2enmod rewrite
  
 RUN php /var/www/artisan storage:link
+RUN php /var/www/artisan migrate --force
