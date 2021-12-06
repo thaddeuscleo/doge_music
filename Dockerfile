@@ -13,7 +13,7 @@ RUN npm run prod
 FROM php:7.3-apache-stretch
 RUN apt-get update && apt-get install -y libpq-dev
 RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
-RUN docker-php-ext-install pdo pdo_pgsql
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 EXPOSE 8080
 COPY --from=build /app /var/www/
