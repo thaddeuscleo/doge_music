@@ -14,3 +14,5 @@ RUN chmod 777 -R /var/www/storage/ && \
     echo "Listen 8080" >> /etc/apache2/ports.conf && \
     chown -R www-data:www-data /var/www/ && \
     a2enmod rewrite
+ 
+CMD php /var/www/artisan storage:link
