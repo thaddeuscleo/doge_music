@@ -15,4 +15,4 @@ RUN chmod 777 -R /var/www/storage/ && \
     chown -R www-data:www-data /var/www/ && \
     a2enmod rewrite
  
-CMD php /var/www/artisan storage:link
+RUN php /var/www/artisan storage:link
