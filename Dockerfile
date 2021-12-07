@@ -1,22 +1,21 @@
-FROM composer:2.1.9 as build
+# FROM composer:2.1.9 as build
+# WORKDIR /app
+# COPY . /app
+# RUN composer install
 
-WORKDIR /app
-COPY . /app
-RUN composer install
+# FROM node:16
+# WORKDIR /app
+# COPY . /app
+# RUN npm install
+# RUN npm run prod
 
-FROM node:16
-WORKDIR /app
-COPY . /app
-RUN npm install
-RUN npm run prod
-
-FROM php:7.3-apache-stretch
-RUN docker-php-ext-install pdo pdo_mysql
+# FROM php:7.3-apache-stretch
+# RUN docker-php-ext-install pdo pdo_mysql
 
 FROM ubuntu:20.04
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-RUN apt-get update && sudo apt-get dist-upgrade
+RUN apt-get update && sudo apt-get upgrade
 RUN apt-get -y install mysql-server
 
 EXPOSE 8080
@@ -28,5 +27,5 @@ RUN chmod 777 -R /var/www/storage/ && \
     chown -R www-data:www-data /var/www/ && \
     a2enmod rewrite
  
-RUN php /var/www/artisan storage:link
-RUN php /var/www/artisan migrate --force
+# RUN php /var/www/artisan storage:link
+# RUN php /var/www/artisan migrate --force
