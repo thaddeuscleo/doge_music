@@ -15,6 +15,7 @@ RUN echo "mysql-server mysql-server/root_password_again password root" | debconf
 RUN apt-get update && apt-get upgrade
 RUN apt-get -y install mysql-server
 RUN echo mysql -uroot --password=root -e "create database doge_music"; 
+RUN echo "SHOW DATABASES;" | mysql -uroot --password=root
 
 FROM php:7.3-apache-stretch
 RUN docker-php-ext-install pdo pdo_mysql
