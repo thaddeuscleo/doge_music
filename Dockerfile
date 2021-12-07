@@ -1,16 +1,16 @@
-# FROM composer:2.1.9 as build
-# WORKDIR /app
-# COPY . /app
-# RUN composer install
+FROM composer:2.1.9 as build
+WORKDIR /app
+COPY . /app
+RUN composer install
 
-# FROM node:16
-# WORKDIR /app
-# COPY . /app
-# RUN npm install
-# RUN npm run prod
+FROM node:16
+WORKDIR /app
+COPY . /app
+RUN npm install
+RUN npm run prod
 
-# FROM php:7.3-apache-stretch
-# RUN docker-php-ext-install pdo pdo_mysql
+FROM php:7.3-apache-stretch
+RUN docker-php-ext-install pdo pdo_mysql
 
 FROM ubuntu:20.04
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
@@ -27,5 +27,5 @@ RUN chmod 777 -R /var/www/storage/ && \
     chown -R www-data:www-data /var/www/ && \
     a2enmod rewrite
  
-# RUN php /var/www/artisan storage:link
-# RUN php /var/www/artisan migrate --force
+RUN php /var/www/artisan storage:link
+RUN php /var/www/artisan migrate --force
