@@ -9,14 +9,15 @@ COPY . /app
 RUN npm install
 RUN npm run prod
 
-FROM php:7.3-apache-stretch
-RUN docker-php-ext-install pdo pdo_mysql
-
 FROM ubuntu:20.04
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 RUN apt-get update && apt-get upgrade
 RUN apt-get -y install mysql-server
+RUN mysql -u root -p root -e "create database doge_music"; 
+
+FROM php:7.3-apache-stretch
+RUN docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 8080
 COPY --from=build /app /var/www/
